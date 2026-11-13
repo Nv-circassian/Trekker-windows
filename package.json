@@ -1,0 +1,21 @@
+{
+  "name": "trekker",
+  "version": "1.0.0",
+  "description": "Трекер",
+  "main": "main.js",
+  "author": "Трекер",
+  "scripts": {
+    "prepare-app": "node scripts/prepare.js",
+    "start": "npm run prepare-app && electron .",
+    "build": "npm run prepare-app && electron-builder --win --x64"
+  },
+  "dependencies": { "jszip": "^3.10.1" },
+  "devDependencies": { "electron": "^33.0.0", "electron-builder": "^25.0.0" },
+  "build": {
+    "appId": "com.example.trekker",
+    "productName": "Трекер",
+    "files": ["main.js", "preload.js", "app/**", "build/**"],
+    "win": { "target": ["nsis"], "icon": "build/icon.ico" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}
